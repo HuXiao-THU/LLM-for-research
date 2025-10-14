@@ -41,7 +41,7 @@ def evaluate_single_example(example, api_key, model):
             api_key=api_key,
             base_url=siliconflow_url,
             model=model,
-            temperature=1,
+            temperature=temperature,
             top_p=1,
             max_tokens=4096
         )
