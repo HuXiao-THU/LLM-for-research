@@ -13,11 +13,6 @@ pip install -r requirements.txt
 conda install --file requirements.txt
 ```
 
-### 方法三：手动安装主要依赖
-```bash
-pip install openai>=1.0.0 tqdm>=4.64.0
-```
-
 ## 内容介绍
 ### LLM的调用和测试
 - `Example_01_llm_api.py` 提供了调用硅基流动API的框架
