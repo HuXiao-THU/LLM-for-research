@@ -1,20 +1,15 @@
-# LLM API相关
 openai>=1.0.0
 
-# 进度条显示
 tqdm>=4.64.0
 
-# Jupyter notebook运行环境
 jupyter>=1.0.0
 ipykernel>=6.0.0
 notebook>=6.4.0
 
-# 数据处理和分析
 pandas>=1.5.0
 numpy>=1.21.0
 matplotlib>=3.5.0
 seaborn>=0.11.0
 
-# 科学计算和统计
 scipy>=1.9.0
 scikit-learn>=1.1.0
