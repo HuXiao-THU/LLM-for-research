@@ -4,6 +4,12 @@ siliconflow_api_key = "Your API key here"
 siliconflow_url = "https://api.siliconflow.cn/v1"
 deepseek_model = "deepseek-ai/DeepSeek-V3"
 
+local_api_key = "no need"   # 本地服务默认不需要api_key
+local_url = "http://localhost:8000/v1"  # 注意修改端口号
+local_model = "no need"     # 取决于运行命令时启动了什么模型
+
+use_local_model = False
+
 def call_llm(system_prompt, user_prompt, api_key=None, base_url="http://localhost:8000/v1", model="test", temperature=1, top_p=1, max_tokens=4096):
     """
     调用LLM API
@@ -44,12 +50,21 @@ if __name__ == '__main__':
     Hello! What's your name? 
     """
 
+    if use_local_model:
+        api_key = local_api_key
+        base_url = local_url
+        model = local_model
+    else:
+        api_key = siliconflow_api_key
+        base_url = siliconflow_url
+        model = deepseek_model
+
     response, prompt_tokens, completion_tokens = call_llm(
         system_prompt, 
         user_prompt, 
-        api_key=siliconflow_api_key, 
-        base_url=siliconflow_url,
-        model=deepseek_model,
+        api_key=api_key, 
+        base_url=base_url,
+        model=model,
         temperature=0.7,
         top_p=1,
         max_tokens=4096

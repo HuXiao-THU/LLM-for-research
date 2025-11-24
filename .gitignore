@@ -1,3 +1,4 @@
 __pycache__/
 .DS_Store
 veh_event_data.csv
+test*
