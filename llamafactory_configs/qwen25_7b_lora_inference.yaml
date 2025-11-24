@@ -1,0 +1,9 @@
+model_name_or_path: /home/huxiao/models/Qwen/Qwen2___5-7B-Instruct
+adapter_name_or_path: /home/huxiao/LLaMA-Factory/saves/qwen25/lora/sft-SMOTE
+template: qwen
+infer_backend: vllm  # choices: [huggingface, vllm]
+trust_remote_code: true
+
+# 启动命令参考
+# conda activate llamafactory （你自己的虚拟环境）
+# API_PORT=8000 API_VERBOSE=0 CUDA_VISIBLE_DEVICES=0 llamafactory-cli api llamafactory_configs/qwen25_7b_lora_inference.yaml （你的配置文件路径，注意调整API_PORT和CUDA_VISIBLE_DEVICES）

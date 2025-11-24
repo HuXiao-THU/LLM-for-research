@@ -1,0 +1,49 @@
+### model
+model_name_or_path: /home/huxiao/models/Qwen/Qwen2___5-7B-Instruct
+trust_remote_code: true
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_rank: 8
+lora_target: all
+
+### dataset
+dataset: Highway_SMOTE
+template: qwen
+cutoff_len: 2048
+max_samples: 10000
+overwrite_cache: true
+preprocessing_num_workers: 16
+dataloader_num_workers: 4
+
+### output
+output_dir: saves/qwen25/lora/sft-SMOTE
+logging_steps: 10
+save_steps: 500
+plot_loss: true
+overwrite_output_dir: true
+save_only_model: false
+
+### train
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 8
+learning_rate: 1.0e-4
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+bf16: true
+ddp_timeout: 180000000
+resume_from_checkpoint: null
+
+### eval
+# eval_dataset: Highway_SMOTE_0309
+# val_size: 0.1
+# per_device_eval_batch_size: 1
+# eval_strategy: steps
+# eval_steps: 500
+
+# 启动命令参考
+# conda activate llamafactory （你自己的虚拟环境）
+# CUDA_VISIBLE_DEVICES=0,1,2,3 llamafactory-cli train llamafactory_configs/qwen25_7b_lora_train.yaml （你的配置文件路径，注意调整CUDA_VISIBLE_DEVICES）
